@@ -71,6 +71,26 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
 $id = 56; // int | ID задания
 
 try {
+    $result = $apiInstance->taskDelete($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TasksApi->taskDelete: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\TasksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | ID задания
+
+try {
     $result = $apiInstance->taskGet($id);
     print_r($result);
 } catch (Exception $e) {
@@ -124,6 +144,7 @@ All URIs are relative to *https://kinocontent.club/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*TasksApi* | [**taskDelete**](docs/Api/TasksApi.md#taskdelete) | **DELETE** /task | Удаление задания
 *TasksApi* | [**taskGet**](docs/Api/TasksApi.md#taskget) | **GET** /task | Получение информации о задании
 *TasksApi* | [**taskPost**](docs/Api/TasksApi.md#taskpost) | **POST** /task | Добавление задания
 *TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий

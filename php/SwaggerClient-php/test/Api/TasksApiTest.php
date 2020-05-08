@@ -71,6 +71,16 @@ class TasksApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for taskDelete
+     *
+     * Удаление задания.
+     *
+     */
+    public function testTaskDelete()
+    {
+    }
+
+    /**
      * Test case for taskGet
      *
      * Получение информации о задании.
