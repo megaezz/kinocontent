@@ -1,6 +1,6 @@
 # Swagger\Client\TasksApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/megaezz/Kinocontent/1.0.0*
+All URIs are relative to *https://kinocontent.club/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
