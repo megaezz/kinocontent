@@ -928,6 +928,7 @@ class TasksApi
      *
      * Редактирование задания
      *
+     * @param  int $id ID задания (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -939,9 +940,9 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\InlineResponse2001
      */
-    public function taskPut($symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
     {
-        list($response) = $this->taskPutWithHttpInfo($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
         return $response;
     }
 
@@ -950,6 +951,7 @@ class TasksApi
      *
      * Редактирование задания
      *
+     * @param  int $id ID задания (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -961,10 +963,10 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taskPutWithHttpInfo($symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1046,6 +1048,7 @@ class TasksApi
      *
      * Редактирование задания
      *
+     * @param  int $id ID задания (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1056,9 +1059,9 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsync($symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
     {
-        return $this->taskPutAsyncWithHttpInfo($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1071,6 +1074,7 @@ class TasksApi
      *
      * Редактирование задания
      *
+     * @param  int $id ID задания (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1081,10 +1085,10 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsyncWithHttpInfo($symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1126,6 +1130,7 @@ class TasksApi
     /**
      * Create request for operation 'taskPut'
      *
+     * @param  int $id ID задания (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1136,8 +1141,14 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taskPutRequest($symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling taskPut'
+            );
+        }
 
         $resourcePath = '/task';
         $formParams = [];
@@ -1146,6 +1157,10 @@ class TasksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($id !== null) {
+            $queryParams['id'] = ObjectSerializer::toQueryValue($id);
+        }
         // query params
         if ($symbols_from !== null) {
             $queryParams['symbols_from'] = ObjectSerializer::toQueryValue($symbols_from);

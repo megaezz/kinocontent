@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> \Swagger\Client\Model\InlineResponse2001 taskPut($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
 
 Редактирование задания
 
@@ -186,6 +186,7 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
+$id = 56; // int | ID задания
 $symbols_from = 56; // int | Символов От
 $symbols_to = 56; // int | Символов До
 $comment = "comment_example"; // string | Комментарий к заданию
@@ -194,7 +195,7 @@ $confirmed = true; // bool | Подтвержденное задание (отп
 $express = true; // bool | Экспресс задание
 
 try {
-    $result = $apiInstance->taskPut($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
@@ -206,6 +207,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **int**| ID задания |
  **symbols_from** | **int**| Символов От | [optional]
  **symbols_to** | **int**| Символов До | [optional]
  **comment** | **string**| Комментарий к заданию | [optional]
