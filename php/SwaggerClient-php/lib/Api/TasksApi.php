@@ -928,14 +928,20 @@ class TasksApi
      *
      * Получение списка заданий
      *
+     * @param  bool $include_data С расширенными данными (по умолчанию) / Только ID (optional)
+     * @param  bool $done Выполненные / не выполненные (optional)
+     * @param  bool $confirmed Отправленные в работу / не отправленные (optional)
+     * @param  bool $archived В архиве / не в архиве (optional)
+     * @param  int $limit Лимит (от 1 до 100 элементов) (optional)
+     * @param  int $page Номер страницы (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function tasksGet()
+    public function tasksGet($include_data = null, $done = null, $confirmed = null, $archived = null, $limit = null, $page = null)
     {
-        list($response) = $this->tasksGetWithHttpInfo();
+        list($response) = $this->tasksGetWithHttpInfo($include_data, $done, $confirmed, $archived, $limit, $page);
         return $response;
     }
 
@@ -944,15 +950,21 @@ class TasksApi
      *
      * Получение списка заданий
      *
+     * @param  bool $include_data С расширенными данными (по умолчанию) / Только ID (optional)
+     * @param  bool $done Выполненные / не выполненные (optional)
+     * @param  bool $confirmed Отправленные в работу / не отправленные (optional)
+     * @param  bool $archived В архиве / не в архиве (optional)
+     * @param  int $limit Лимит (от 1 до 100 элементов) (optional)
+     * @param  int $page Номер страницы (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tasksGetWithHttpInfo()
+    public function tasksGetWithHttpInfo($include_data = null, $done = null, $confirmed = null, $archived = null, $limit = null, $page = null)
     {
         $returnType = 'object';
-        $request = $this->tasksGetRequest();
+        $request = $this->tasksGetRequest($include_data, $done, $confirmed, $archived, $limit, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1034,13 +1046,19 @@ class TasksApi
      *
      * Получение списка заданий
      *
+     * @param  bool $include_data С расширенными данными (по умолчанию) / Только ID (optional)
+     * @param  bool $done Выполненные / не выполненные (optional)
+     * @param  bool $confirmed Отправленные в работу / не отправленные (optional)
+     * @param  bool $archived В архиве / не в архиве (optional)
+     * @param  int $limit Лимит (от 1 до 100 элементов) (optional)
+     * @param  int $page Номер страницы (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetAsync()
+    public function tasksGetAsync($include_data = null, $done = null, $confirmed = null, $archived = null, $limit = null, $page = null)
     {
-        return $this->tasksGetAsyncWithHttpInfo()
+        return $this->tasksGetAsyncWithHttpInfo($include_data, $done, $confirmed, $archived, $limit, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1053,14 +1071,20 @@ class TasksApi
      *
      * Получение списка заданий
      *
+     * @param  bool $include_data С расширенными данными (по умолчанию) / Только ID (optional)
+     * @param  bool $done Выполненные / не выполненные (optional)
+     * @param  bool $confirmed Отправленные в работу / не отправленные (optional)
+     * @param  bool $archived В архиве / не в архиве (optional)
+     * @param  int $limit Лимит (от 1 до 100 элементов) (optional)
+     * @param  int $page Номер страницы (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetAsyncWithHttpInfo()
+    public function tasksGetAsyncWithHttpInfo($include_data = null, $done = null, $confirmed = null, $archived = null, $limit = null, $page = null)
     {
         $returnType = 'object';
-        $request = $this->tasksGetRequest();
+        $request = $this->tasksGetRequest($include_data, $done, $confirmed, $archived, $limit, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1102,11 +1126,17 @@ class TasksApi
     /**
      * Create request for operation 'tasksGet'
      *
+     * @param  bool $include_data С расширенными данными (по умолчанию) / Только ID (optional)
+     * @param  bool $done Выполненные / не выполненные (optional)
+     * @param  bool $confirmed Отправленные в работу / не отправленные (optional)
+     * @param  bool $archived В архиве / не в архиве (optional)
+     * @param  int $limit Лимит (от 1 до 100 элементов) (optional)
+     * @param  int $page Номер страницы (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function tasksGetRequest()
+    protected function tasksGetRequest($include_data = null, $done = null, $confirmed = null, $archived = null, $limit = null, $page = null)
     {
 
         $resourcePath = '/tasks';
@@ -1116,6 +1146,30 @@ class TasksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($include_data !== null) {
+            $queryParams['include_data'] = ObjectSerializer::toQueryValue($include_data);
+        }
+        // query params
+        if ($done !== null) {
+            $queryParams['done'] = ObjectSerializer::toQueryValue($done);
+        }
+        // query params
+        if ($confirmed !== null) {
+            $queryParams['confirmed'] = ObjectSerializer::toQueryValue($confirmed);
+        }
+        // query params
+        if ($archived !== null) {
+            $queryParams['archived'] = ObjectSerializer::toQueryValue($archived);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
 
 
         // body params

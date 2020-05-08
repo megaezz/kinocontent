@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **tasksGet**
-> object tasksGet()
+> object tasksGet($include_data, $done, $confirmed, $archived, $limit, $page)
 
 Получение списка заданий
 
@@ -185,9 +185,15 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
+$include_data = true; // bool | С расширенными данными (по умолчанию) / Только ID
+$done = true; // bool | Выполненные / не выполненные
+$confirmed = true; // bool | Отправленные в работу / не отправленные
+$archived = true; // bool | В архиве / не в архиве
+$limit = 56; // int | Лимит (от 1 до 100 элементов)
+$page = 56; // int | Номер страницы
 
 try {
-    $result = $apiInstance->tasksGet();
+    $result = $apiInstance->tasksGet($include_data, $done, $confirmed, $archived, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksGet: ', $e->getMessage(), PHP_EOL;
@@ -196,7 +202,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include_data** | **bool**| С расширенными данными (по умолчанию) / Только ID | [optional]
+ **done** | **bool**| Выполненные / не выполненные | [optional]
+ **confirmed** | **bool**| Отправленные в работу / не отправленные | [optional]
+ **archived** | **bool**| В архиве / не в архиве | [optional]
+ **limit** | **int**| Лимит (от 1 до 100 элементов) | [optional]
+ **page** | **int**| Номер страницы | [optional]
 
 ### Return type
 
