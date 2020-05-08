@@ -1,6 +1,6 @@
 <?php
 /**
- * TasksApiTest
+ * UserApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use Swagger\Client\ApiException;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * TasksApiTest Class Doc Comment
+ * UserApiTest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TasksApiTest extends \PHPUnit_Framework_TestCase
+class UserApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,32 +71,12 @@ class TasksApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for taskGet
+     * Test case for userGet
      *
-     * Получение информации о задании.
-     *
-     */
-    public function testTaskGet()
-    {
-    }
-
-    /**
-     * Test case for taskPost
-     *
-     * Добавление задания.
+     * Получение информации о пользователе.
      *
      */
-    public function testTaskPost()
-    {
-    }
-
-    /**
-     * Test case for tasksGet
-     *
-     * Получение списка заданий.
-     *
-     */
-    public function testTasksGet()
+    public function testUserGet()
     {
     }
 }
