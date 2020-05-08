@@ -128,6 +128,31 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
+$symbols_from = 56; // int | Символов От
+$symbols_to = 56; // int | Символов До
+$comment = "comment_example"; // string | Комментарий к заданию
+$private_comment = "private_comment_example"; // string | Приватный комментарий (видит только сам пользователь)
+$confirmed = true; // bool | Подтвержденное задание (отправлено на выполнение)
+$express = true; // bool | Экспресс задание
+
+try {
+    $result = $apiInstance->taskPut($symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\TasksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $include_data = true; // bool | С расширенными данными (по умолчанию) / Только ID
 $done = true; // bool | Выполненные / не выполненные
 $confirmed = true; // bool | Отправленные в работу / не отправленные
@@ -153,6 +178,7 @@ Class | Method | HTTP request | Description
 *TasksApi* | [**taskDelete**](docs/Api/TasksApi.md#taskdelete) | **DELETE** /task | Удаление задания
 *TasksApi* | [**taskGet**](docs/Api/TasksApi.md#taskget) | **GET** /task | Получение информации о задании
 *TasksApi* | [**taskPost**](docs/Api/TasksApi.md#taskpost) | **POST** /task | Добавление задания
+*TasksApi* | [**taskPut**](docs/Api/TasksApi.md#taskput) | **PUT** /task | Редактирование задания
 *TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий
 *UserApi* | [**userGet**](docs/Api/UserApi.md#userget) | **GET** /user | Получение информации о пользователе
 

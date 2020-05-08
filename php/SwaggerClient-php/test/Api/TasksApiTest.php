@@ -101,6 +101,16 @@ class TasksApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for taskPut
+     *
+     * Редактирование задания.
+     *
+     */
+    public function testTaskPut()
+    {
+    }
+
+    /**
      * Test case for tasksGet
      *
      * Получение списка заданий.
