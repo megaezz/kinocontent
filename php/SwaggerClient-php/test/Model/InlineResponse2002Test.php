@@ -88,4 +88,11 @@ class InlineResponse2002Test extends \PHPUnit_Framework_TestCase
     public function testPropertyBalance()
     {
     }
+
+    /**
+     * Test attribute "is_enough_balance"
+     */
+    public function testPropertyIsEnoughBalance()
+    {
+    }
 }

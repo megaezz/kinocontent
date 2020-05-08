@@ -57,7 +57,8 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'login' => 'string',
-'balance' => 'float'    ];
+'balance' => 'float',
+'is_enough_balance' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,7 +67,8 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'login' => null,
-'balance' => null    ];
+'balance' => null,
+'is_enough_balance' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,7 +98,8 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'login' => 'login',
-'balance' => 'balance'    ];
+'balance' => 'balance',
+'is_enough_balance' => 'is_enough_balance'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,7 +108,8 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'login' => 'setLogin',
-'balance' => 'setBalance'    ];
+'balance' => 'setBalance',
+'is_enough_balance' => 'setIsEnoughBalance'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,7 +118,8 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'login' => 'getLogin',
-'balance' => 'getBalance'    ];
+'balance' => 'getBalance',
+'is_enough_balance' => 'getIsEnoughBalance'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -176,6 +181,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
     {
         $this->container['login'] = isset($data['login']) ? $data['login'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['is_enough_balance'] = isset($data['is_enough_balance']) ? $data['is_enough_balance'] : null;
     }
 
     /**
@@ -246,6 +252,30 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
     public function setBalance($balance)
     {
         $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_enough_balance
+     *
+     * @return bool
+     */
+    public function getIsEnoughBalance()
+    {
+        return $this->container['is_enough_balance'];
+    }
+
+    /**
+     * Sets is_enough_balance
+     *
+     * @param bool $is_enough_balance Выполняются ли задания из очереди, или выполнение приостановлено из-за недостаточного баланса
+     *
+     * @return $this
+     */
+    public function setIsEnoughBalance($is_enough_balance)
+    {
+        $this->container['is_enough_balance'] = $is_enough_balance;
 
         return $this;
     }
