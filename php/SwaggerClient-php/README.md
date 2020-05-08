@@ -108,10 +108,9 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$confirmed = true; // bool | только отправленные на выполнение
 
 try {
-    $result = $apiInstance->tasksGet($confirmed);
+    $result = $apiInstance->tasksGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksGet: ', $e->getMessage(), PHP_EOL;
@@ -121,19 +120,21 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/megaezz/Kinocontent/1.0.0*
+All URIs are relative to *https://kinocontent.club/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *TasksApi* | [**taskGet**](docs/Api/TasksApi.md#taskget) | **GET** /task | Получение информации о задании
 *TasksApi* | [**taskPost**](docs/Api/TasksApi.md#taskpost) | **POST** /task | Добавление задания
 *TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий
+*UserApi* | [**userGet**](docs/Api/UserApi.md#userget) | **GET** /user | Получение информации о пользователе
 
 ## Documentation For Models
 
  - [Error](docs/Model/Error.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse2002](docs/Model/InlineResponse2002.md)
 
 ## Documentation For Authorization
 

@@ -1,6 +1,6 @@
 # Swagger\Client\TasksApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/megaezz/Kinocontent/1.0.0*
+All URIs are relative to *https://kinocontent.club/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **tasksGet**
-> object tasksGet($confirmed)
+> object tasksGet()
 
 Получение списка заданий
 
@@ -132,10 +132,9 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$confirmed = true; // bool | только отправленные на выполнение
 
 try {
-    $result = $apiInstance->tasksGet($confirmed);
+    $result = $apiInstance->tasksGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksGet: ', $e->getMessage(), PHP_EOL;
@@ -144,10 +143,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **confirmed** | **bool**| только отправленные на выполнение | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 

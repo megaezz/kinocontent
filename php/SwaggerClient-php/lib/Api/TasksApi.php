@@ -649,15 +649,14 @@ class TasksApi
      *
      * Получение списка заданий
      *
-     * @param  bool $confirmed только отправленные на выполнение (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function tasksGet($confirmed = null)
+    public function tasksGet()
     {
-        list($response) = $this->tasksGetWithHttpInfo($confirmed);
+        list($response) = $this->tasksGetWithHttpInfo();
         return $response;
     }
 
@@ -666,16 +665,15 @@ class TasksApi
      *
      * Получение списка заданий
      *
-     * @param  bool $confirmed только отправленные на выполнение (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tasksGetWithHttpInfo($confirmed = null)
+    public function tasksGetWithHttpInfo()
     {
         $returnType = 'object';
-        $request = $this->tasksGetRequest($confirmed);
+        $request = $this->tasksGetRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -757,14 +755,13 @@ class TasksApi
      *
      * Получение списка заданий
      *
-     * @param  bool $confirmed только отправленные на выполнение (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetAsync($confirmed = null)
+    public function tasksGetAsync()
     {
-        return $this->tasksGetAsyncWithHttpInfo($confirmed)
+        return $this->tasksGetAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -777,15 +774,14 @@ class TasksApi
      *
      * Получение списка заданий
      *
-     * @param  bool $confirmed только отправленные на выполнение (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetAsyncWithHttpInfo($confirmed = null)
+    public function tasksGetAsyncWithHttpInfo()
     {
         $returnType = 'object';
-        $request = $this->tasksGetRequest($confirmed);
+        $request = $this->tasksGetRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -827,12 +823,11 @@ class TasksApi
     /**
      * Create request for operation 'tasksGet'
      *
-     * @param  bool $confirmed только отправленные на выполнение (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function tasksGetRequest($confirmed = null)
+    protected function tasksGetRequest()
     {
 
         $resourcePath = '/tasks';
@@ -842,10 +837,6 @@ class TasksApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($confirmed !== null) {
-            $queryParams['confirmed'] = ObjectSerializer::toQueryValue($confirmed);
-        }
 
 
         // body params
