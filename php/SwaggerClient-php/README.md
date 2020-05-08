@@ -108,10 +108,9 @@ $apiInstance = new Swagger\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$confirmed = true; // bool | только отправленные на выполнение
 
 try {
-    $result = $apiInstance->tasksGet($confirmed);
+    $result = $apiInstance->tasksGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksGet: ', $e->getMessage(), PHP_EOL;
