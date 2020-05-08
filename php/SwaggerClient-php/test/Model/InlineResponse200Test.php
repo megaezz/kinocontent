@@ -130,4 +130,25 @@ class InlineResponse200Test extends \PHPUnit_Framework_TestCase
     public function testPropertyComment()
     {
     }
+
+    /**
+     * Test attribute "private_comment"
+     */
+    public function testPropertyPrivateComment()
+    {
+    }
+
+    /**
+     * Test attribute "confirmed"
+     */
+    public function testPropertyConfirmed()
+    {
+    }
+
+    /**
+     * Test attribute "express"
+     */
+    public function testPropertyExpress()
+    {
+    }
 }

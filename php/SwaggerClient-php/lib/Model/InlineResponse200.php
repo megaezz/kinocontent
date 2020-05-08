@@ -63,7 +63,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'int',
 'symbols_to' => 'int',
 'unique' => 'int',
-'comment' => 'string'    ];
+'comment' => 'string',
+'private_comment' => 'string',
+'confirmed' => 'bool',
+'express' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -78,7 +81,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => null,
 'symbols_to' => null,
 'unique' => null,
-'comment' => null    ];
+'comment' => null,
+'private_comment' => null,
+'confirmed' => null,
+'express' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -114,7 +120,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'symbols_from',
 'symbols_to' => 'symbols_to',
 'unique' => 'unique',
-'comment' => 'comment'    ];
+'comment' => 'comment',
+'private_comment' => 'private_comment',
+'confirmed' => 'confirmed',
+'express' => 'express'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -129,7 +138,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'setSymbolsFrom',
 'symbols_to' => 'setSymbolsTo',
 'unique' => 'setUnique',
-'comment' => 'setComment'    ];
+'comment' => 'setComment',
+'private_comment' => 'setPrivateComment',
+'confirmed' => 'setConfirmed',
+'express' => 'setExpress'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -144,7 +156,10 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'getSymbolsFrom',
 'symbols_to' => 'getSymbolsTo',
 'unique' => 'getUnique',
-'comment' => 'getComment'    ];
+'comment' => 'getComment',
+'private_comment' => 'getPrivateComment',
+'confirmed' => 'getConfirmed',
+'express' => 'getExpress'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -212,6 +227,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['symbols_to'] = isset($data['symbols_to']) ? $data['symbols_to'] : null;
         $this->container['unique'] = isset($data['unique']) ? $data['unique'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['private_comment'] = isset($data['private_comment']) ? $data['private_comment'] : null;
+        $this->container['confirmed'] = isset($data['confirmed']) ? $data['confirmed'] : null;
+        $this->container['express'] = isset($data['express']) ? $data['express'] : null;
     }
 
     /**
@@ -426,6 +444,78 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setComment($comment)
     {
         $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_comment
+     *
+     * @return string
+     */
+    public function getPrivateComment()
+    {
+        return $this->container['private_comment'];
+    }
+
+    /**
+     * Sets private_comment
+     *
+     * @param string $private_comment private_comment
+     *
+     * @return $this
+     */
+    public function setPrivateComment($private_comment)
+    {
+        $this->container['private_comment'] = $private_comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets confirmed
+     *
+     * @return bool
+     */
+    public function getConfirmed()
+    {
+        return $this->container['confirmed'];
+    }
+
+    /**
+     * Sets confirmed
+     *
+     * @param bool $confirmed confirmed
+     *
+     * @return $this
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->container['confirmed'] = $confirmed;
+
+        return $this;
+    }
+
+    /**
+     * Gets express
+     *
+     * @return bool
+     */
+    public function getExpress()
+    {
+        return $this->container['express'];
+    }
+
+    /**
+     * Sets express
+     *
+     * @param bool $express express
+     *
+     * @return $this
+     */
+    public function setExpress($express)
+    {
+        $this->container['express'] = $express;
 
         return $this;
     }

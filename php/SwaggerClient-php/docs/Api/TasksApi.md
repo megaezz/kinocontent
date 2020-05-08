@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**taskDelete**](TasksApi.md#taskdelete) | **DELETE** /task | Удаление задания
 [**taskGet**](TasksApi.md#taskget) | **GET** /task | Получение информации о задании
 [**taskPost**](TasksApi.md#taskpost) | **POST** /task | Добавление задания
+[**taskPut**](TasksApi.md#taskput) | **PUT** /task | Редактирование задания
 [**tasksGet**](TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий
 
 # **taskDelete**
@@ -149,6 +150,70 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **kinopoisk_id** | **int**| ID фильма или сериала с Кинопоиска |
+
+### Return type
+
+[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **taskPut**
+> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+
+Редактирование задания
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\TasksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | ID задания
+$symbols_from = 56; // int | Символов От
+$symbols_to = 56; // int | Символов До
+$comment = "comment_example"; // string | Комментарий к заданию
+$private_comment = "private_comment_example"; // string | Приватный комментарий (видит только сам пользователь)
+$confirmed = true; // bool | Подтвержденное задание (отправлено на выполнение)
+$express = true; // bool | Экспресс задание
+
+try {
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| ID задания |
+ **symbols_from** | **int**| Символов От | [optional]
+ **symbols_to** | **int**| Символов До | [optional]
+ **comment** | **string**| Комментарий к заданию | [optional]
+ **private_comment** | **string**| Приватный комментарий (видит только сам пользователь) | [optional]
+ **confirmed** | **bool**| Подтвержденное задание (отправлено на выполнение) | [optional]
+ **express** | **bool**| Экспресс задание | [optional]
 
 ### Return type
 
