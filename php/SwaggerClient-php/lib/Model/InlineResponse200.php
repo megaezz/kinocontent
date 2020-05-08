@@ -63,7 +63,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'int',
 'symbols_to' => 'int',
 'unique' => 'int',
-'comment' => 'string'    ];
+'comment' => 'string',
+'private_comment' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -78,7 +79,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => null,
 'symbols_to' => null,
 'unique' => null,
-'comment' => null    ];
+'comment' => null,
+'private_comment' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -114,7 +116,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'symbols_from',
 'symbols_to' => 'symbols_to',
 'unique' => 'unique',
-'comment' => 'comment'    ];
+'comment' => 'comment',
+'private_comment' => 'private_comment'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -129,7 +132,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'setSymbolsFrom',
 'symbols_to' => 'setSymbolsTo',
 'unique' => 'setUnique',
-'comment' => 'setComment'    ];
+'comment' => 'setComment',
+'private_comment' => 'setPrivateComment'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -144,7 +148,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'symbols_from' => 'getSymbolsFrom',
 'symbols_to' => 'getSymbolsTo',
 'unique' => 'getUnique',
-'comment' => 'getComment'    ];
+'comment' => 'getComment',
+'private_comment' => 'getPrivateComment'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -212,6 +217,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['symbols_to'] = isset($data['symbols_to']) ? $data['symbols_to'] : null;
         $this->container['unique'] = isset($data['unique']) ? $data['unique'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['private_comment'] = isset($data['private_comment']) ? $data['private_comment'] : null;
     }
 
     /**
@@ -426,6 +432,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setComment($comment)
     {
         $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_comment
+     *
+     * @return string
+     */
+    public function getPrivateComment()
+    {
+        return $this->container['private_comment'];
+    }
+
+    /**
+     * Sets private_comment
+     *
+     * @param string $private_comment private_comment
+     *
+     * @return $this
+     */
+    public function setPrivateComment($private_comment)
+    {
+        $this->container['private_comment'] = $private_comment;
 
         return $this;
     }
