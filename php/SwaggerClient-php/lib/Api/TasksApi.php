@@ -929,6 +929,7 @@ class TasksApi
      * Редактирование задания
      *
      * @param  int $id ID задания (required)
+     * @param  bool $moderated Задание отмодерировано (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -942,9 +943,9 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\InlineResponse2001
      */
-    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
+    public function taskPut($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
     {
-        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
+        list($response) = $this->taskPutWithHttpInfo($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
         return $response;
     }
 
@@ -954,6 +955,7 @@ class TasksApi
      * Редактирование задания
      *
      * @param  int $id ID задания (required)
+     * @param  bool $moderated Задание отмодерировано (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -967,10 +969,10 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
+    public function taskPutWithHttpInfo($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
+        $request = $this->taskPutRequest($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1053,6 +1055,7 @@ class TasksApi
      * Редактирование задания
      *
      * @param  int $id ID задания (required)
+     * @param  bool $moderated Задание отмодерировано (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1065,9 +1068,9 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
+    public function taskPutAsync($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
     {
-        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework)
+        return $this->taskPutAsyncWithHttpInfo($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1081,6 +1084,7 @@ class TasksApi
      * Редактирование задания
      *
      * @param  int $id ID задания (required)
+     * @param  bool $moderated Задание отмодерировано (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1093,10 +1097,10 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
+    public function taskPutAsyncWithHttpInfo($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
+        $request = $this->taskPutRequest($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1139,6 +1143,7 @@ class TasksApi
      * Create request for operation 'taskPut'
      *
      * @param  int $id ID задания (required)
+     * @param  bool $moderated Задание отмодерировано (required)
      * @param  int $symbols_from Символов От (optional)
      * @param  int $symbols_to Символов До (optional)
      * @param  string $comment Комментарий к заданию (optional)
@@ -1151,12 +1156,18 @@ class TasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
+    protected function taskPutRequest($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling taskPut'
+            );
+        }
+        // verify the required parameter 'moderated' is set
+        if ($moderated === null || (is_array($moderated) && count($moderated) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $moderated when calling taskPut'
             );
         }
 
@@ -1202,6 +1213,10 @@ class TasksApi
         // query params
         if ($rework !== null) {
             $queryParams['rework'] = ObjectSerializer::toQueryValue($rework);
+        }
+        // query params
+        if ($moderated !== null) {
+            $queryParams['moderated'] = ObjectSerializer::toQueryValue($moderated);
         }
 
 
