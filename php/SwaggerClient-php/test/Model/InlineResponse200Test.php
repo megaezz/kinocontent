@@ -158,4 +158,18 @@ class InlineResponse200Test extends \PHPUnit_Framework_TestCase
     public function testPropertyArchived()
     {
     }
+
+    /**
+     * Test attribute "rework"
+     */
+    public function testPropertyRework()
+    {
+    }
+
+    /**
+     * Test attribute "rework_comment"
+     */
+    public function testPropertyReworkComment()
+    {
+    }
 }

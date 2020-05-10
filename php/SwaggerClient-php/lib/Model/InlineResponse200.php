@@ -67,7 +67,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'private_comment' => 'string',
 'confirmed' => 'bool',
 'express' => 'bool',
-'archived' => 'bool'    ];
+'archived' => 'bool',
+'rework' => 'bool',
+'rework_comment' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -86,7 +88,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'private_comment' => null,
 'confirmed' => null,
 'express' => null,
-'archived' => null    ];
+'archived' => null,
+'rework' => null,
+'rework_comment' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -126,7 +130,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'private_comment' => 'private_comment',
 'confirmed' => 'confirmed',
 'express' => 'express',
-'archived' => 'archived'    ];
+'archived' => 'archived',
+'rework' => 'rework',
+'rework_comment' => 'rework_comment'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -145,7 +151,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'private_comment' => 'setPrivateComment',
 'confirmed' => 'setConfirmed',
 'express' => 'setExpress',
-'archived' => 'setArchived'    ];
+'archived' => 'setArchived',
+'rework' => 'setRework',
+'rework_comment' => 'setReworkComment'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -164,7 +172,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'private_comment' => 'getPrivateComment',
 'confirmed' => 'getConfirmed',
 'express' => 'getExpress',
-'archived' => 'getArchived'    ];
+'archived' => 'getArchived',
+'rework' => 'getRework',
+'rework_comment' => 'getReworkComment'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -236,6 +246,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['confirmed'] = isset($data['confirmed']) ? $data['confirmed'] : null;
         $this->container['express'] = isset($data['express']) ? $data['express'] : null;
         $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
+        $this->container['rework'] = isset($data['rework']) ? $data['rework'] : null;
+        $this->container['rework_comment'] = isset($data['rework_comment']) ? $data['rework_comment'] : null;
     }
 
     /**
@@ -546,6 +558,54 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setArchived($archived)
     {
         $this->container['archived'] = $archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets rework
+     *
+     * @return bool
+     */
+    public function getRework()
+    {
+        return $this->container['rework'];
+    }
+
+    /**
+     * Sets rework
+     *
+     * @param bool $rework rework
+     *
+     * @return $this
+     */
+    public function setRework($rework)
+    {
+        $this->container['rework'] = $rework;
+
+        return $this;
+    }
+
+    /**
+     * Gets rework_comment
+     *
+     * @return string
+     */
+    public function getReworkComment()
+    {
+        return $this->container['rework_comment'];
+    }
+
+    /**
+     * Sets rework_comment
+     *
+     * @param string $rework_comment rework_comment
+     *
+     * @return $this
+     */
+    public function setReworkComment($rework_comment)
+    {
+        $this->container['rework_comment'] = $rework_comment;
 
         return $this;
     }
