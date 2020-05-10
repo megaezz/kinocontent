@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **confirmed** | **bool** |  | [optional] 
 **express** | **bool** |  | [optional] 
 **archived** | **bool** |  | [optional] 
+**moderated** | **bool** |  | [optional] 
 **rework** | **bool** |  | [optional] 
 **rework_comment** | **string** |  | [optional] 
 

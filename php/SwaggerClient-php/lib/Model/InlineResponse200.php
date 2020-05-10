@@ -68,6 +68,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'confirmed' => 'bool',
 'express' => 'bool',
 'archived' => 'bool',
+'moderated' => 'bool',
 'rework' => 'bool',
 'rework_comment' => 'string'    ];
 
@@ -89,6 +90,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'confirmed' => null,
 'express' => null,
 'archived' => null,
+'moderated' => null,
 'rework' => null,
 'rework_comment' => null    ];
 
@@ -131,6 +133,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'confirmed' => 'confirmed',
 'express' => 'express',
 'archived' => 'archived',
+'moderated' => 'moderated',
 'rework' => 'rework',
 'rework_comment' => 'rework_comment'    ];
 
@@ -152,6 +155,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'confirmed' => 'setConfirmed',
 'express' => 'setExpress',
 'archived' => 'setArchived',
+'moderated' => 'setModerated',
 'rework' => 'setRework',
 'rework_comment' => 'setReworkComment'    ];
 
@@ -173,6 +177,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'confirmed' => 'getConfirmed',
 'express' => 'getExpress',
 'archived' => 'getArchived',
+'moderated' => 'getModerated',
 'rework' => 'getRework',
 'rework_comment' => 'getReworkComment'    ];
 
@@ -246,6 +251,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['confirmed'] = isset($data['confirmed']) ? $data['confirmed'] : null;
         $this->container['express'] = isset($data['express']) ? $data['express'] : null;
         $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
+        $this->container['moderated'] = isset($data['moderated']) ? $data['moderated'] : null;
         $this->container['rework'] = isset($data['rework']) ? $data['rework'] : null;
         $this->container['rework_comment'] = isset($data['rework_comment']) ? $data['rework_comment'] : null;
     }
@@ -558,6 +564,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setArchived($archived)
     {
         $this->container['archived'] = $archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets moderated
+     *
+     * @return bool
+     */
+    public function getModerated()
+    {
+        return $this->container['moderated'];
+    }
+
+    /**
+     * Sets moderated
+     *
+     * @param bool $moderated moderated
+     *
+     * @return $this
+     */
+    public function setModerated($moderated)
+    {
+        $this->container['moderated'] = $moderated;
 
         return $this;
     }

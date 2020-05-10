@@ -160,6 +160,13 @@ class InlineResponse200Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "moderated"
+     */
+    public function testPropertyModerated()
+    {
+    }
+
+    /**
      * Test attribute "rework"
      */
     public function testPropertyRework()
