@@ -21,11 +21,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/megaezz/kinocontent/GIT_REPO_ID.git"
+      "url": "https://github.com/megaezz/kinocontent.git"
     }
   ],
   "require": {
-    "megaezz/kinocontent/GIT_REPO_ID": "*@dev"
+    "megaezz/kinocontent": "*@dev"
   }
 }
 ```
