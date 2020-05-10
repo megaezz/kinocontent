@@ -135,9 +135,10 @@ $comment = "comment_example"; // string | Комментарий к задани
 $private_comment = "private_comment_example"; // string | Приватный комментарий (видит только сам пользователь)
 $confirmed = true; // bool | Подтвержденное задание (отправлено на выполнение)
 $express = true; // bool | Экспресс задание
+$archived = true; // bool | Задание в архиве
 
 try {
-    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;

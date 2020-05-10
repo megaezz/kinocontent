@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived)
 
 Редактирование задания
 
@@ -193,9 +193,10 @@ $comment = "comment_example"; // string | Комментарий к задани
 $private_comment = "private_comment_example"; // string | Приватный комментарий (видит только сам пользователь)
 $confirmed = true; // bool | Подтвержденное задание (отправлено на выполнение)
 $express = true; // bool | Экспресс задание
+$archived = true; // bool | Задание в архиве
 
 try {
-    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
@@ -214,6 +215,7 @@ Name | Type | Description  | Notes
  **private_comment** | **string**| Приватный комментарий (видит только сам пользователь) | [optional]
  **confirmed** | **bool**| Подтвержденное задание (отправлено на выполнение) | [optional]
  **express** | **bool**| Экспресс задание | [optional]
+ **archived** | **bool**| Задание в архиве | [optional]
 
 ### Return type
 

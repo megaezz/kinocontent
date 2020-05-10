@@ -935,14 +935,15 @@ class TasksApi
      * @param  string $private_comment Приватный комментарий (видит только сам пользователь) (optional)
      * @param  bool $confirmed Подтвержденное задание (отправлено на выполнение) (optional)
      * @param  bool $express Экспресс задание (optional)
+     * @param  bool $archived Задание в архиве (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\InlineResponse2001
      */
-    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null)
     {
-        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived);
         return $response;
     }
 
@@ -958,15 +959,16 @@ class TasksApi
      * @param  string $private_comment Приватный комментарий (видит только сам пользователь) (optional)
      * @param  bool $confirmed Подтвержденное задание (отправлено на выполнение) (optional)
      * @param  bool $express Экспресс задание (optional)
+     * @param  bool $archived Задание в архиве (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1055,13 +1057,14 @@ class TasksApi
      * @param  string $private_comment Приватный комментарий (видит только сам пользователь) (optional)
      * @param  bool $confirmed Подтвержденное задание (отправлено на выполнение) (optional)
      * @param  bool $express Экспресс задание (optional)
+     * @param  bool $archived Задание в архиве (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null)
     {
-        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1081,14 +1084,15 @@ class TasksApi
      * @param  string $private_comment Приватный комментарий (видит только сам пользователь) (optional)
      * @param  bool $confirmed Подтвержденное задание (отправлено на выполнение) (optional)
      * @param  bool $express Экспресс задание (optional)
+     * @param  bool $archived Задание в архиве (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse2001';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1137,11 +1141,12 @@ class TasksApi
      * @param  string $private_comment Приватный комментарий (видит только сам пользователь) (optional)
      * @param  bool $confirmed Подтвержденное задание (отправлено на выполнение) (optional)
      * @param  bool $express Экспресс задание (optional)
+     * @param  bool $archived Задание в архиве (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null)
+    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1184,6 +1189,10 @@ class TasksApi
         // query params
         if ($express !== null) {
             $queryParams['express'] = ObjectSerializer::toQueryValue($express);
+        }
+        // query params
+        if ($archived !== null) {
+            $queryParams['archived'] = ObjectSerializer::toQueryValue($archived);
         }
 
 

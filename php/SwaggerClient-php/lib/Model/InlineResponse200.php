@@ -66,7 +66,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'comment' => 'string',
 'private_comment' => 'string',
 'confirmed' => 'bool',
-'express' => 'bool'    ];
+'express' => 'bool',
+'archived' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -84,7 +85,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'comment' => null,
 'private_comment' => null,
 'confirmed' => null,
-'express' => null    ];
+'express' => null,
+'archived' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -123,7 +125,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'comment' => 'comment',
 'private_comment' => 'private_comment',
 'confirmed' => 'confirmed',
-'express' => 'express'    ];
+'express' => 'express',
+'archived' => 'archived'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -141,7 +144,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'comment' => 'setComment',
 'private_comment' => 'setPrivateComment',
 'confirmed' => 'setConfirmed',
-'express' => 'setExpress'    ];
+'express' => 'setExpress',
+'archived' => 'setArchived'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -159,7 +163,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 'comment' => 'getComment',
 'private_comment' => 'getPrivateComment',
 'confirmed' => 'getConfirmed',
-'express' => 'getExpress'    ];
+'express' => 'getExpress',
+'archived' => 'getArchived'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -230,6 +235,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['private_comment'] = isset($data['private_comment']) ? $data['private_comment'] : null;
         $this->container['confirmed'] = isset($data['confirmed']) ? $data['confirmed'] : null;
         $this->container['express'] = isset($data['express']) ? $data['express'] : null;
+        $this->container['archived'] = isset($data['archived']) ? $data['archived'] : null;
     }
 
     /**
@@ -516,6 +522,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setExpress($express)
     {
         $this->container['express'] = $express;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return bool
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool $archived archived
+     *
+     * @return $this
+     */
+    public function setArchived($archived)
+    {
+        $this->container['archived'] = $archived;
 
         return $this;
     }

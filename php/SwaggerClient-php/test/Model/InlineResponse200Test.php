@@ -151,4 +151,11 @@ class InlineResponse200Test extends \PHPUnit_Framework_TestCase
     public function testPropertyExpress()
     {
     }
+
+    /**
+     * Test attribute "archived"
+     */
+    public function testPropertyArchived()
+    {
+    }
 }
