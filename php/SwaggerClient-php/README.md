@@ -138,9 +138,10 @@ $confirmed = true; // bool | Подтвержденное задание (отп
 $express = true; // bool | Экспресс задание
 $archived = true; // bool | Задание в архиве
 $rework = true; // bool | Задание на доработке
+$rework_comment = "rework_comment_example"; // string | Комментарий доработки
 
 try {
-    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
+    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;

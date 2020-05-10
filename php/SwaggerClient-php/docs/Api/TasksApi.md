@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework)
+> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
 
 Редактирование задания
 
@@ -196,9 +196,10 @@ $confirmed = true; // bool | Подтвержденное задание (отп
 $express = true; // bool | Экспресс задание
 $archived = true; // bool | Задание в архиве
 $rework = true; // bool | Задание на доработке
+$rework_comment = "rework_comment_example"; // string | Комментарий доработки
 
 try {
-    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework);
+    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
@@ -220,6 +221,7 @@ Name | Type | Description  | Notes
  **express** | **bool**| Экспресс задание | [optional]
  **archived** | **bool**| Задание в архиве | [optional]
  **rework** | **bool**| Задание на доработке | [optional]
+ **rework_comment** | **string**| Комментарий доработки | [optional]
 
 ### Return type
 
