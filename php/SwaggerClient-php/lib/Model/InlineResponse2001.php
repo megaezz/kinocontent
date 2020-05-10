@@ -56,7 +56,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'created_task_id' => 'int'    ];
+        'login' => 'string',
+'balance' => 'float',
+'is_enough_balance' => 'bool',
+'symbols_from' => 'int',
+'symbols_to' => 'int',
+'comment' => 'string',
+'private_comment' => 'string',
+'express' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +71,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'created_task_id' => null    ];
+        'login' => null,
+'balance' => null,
+'is_enough_balance' => null,
+'symbols_from' => null,
+'symbols_to' => null,
+'comment' => null,
+'private_comment' => null,
+'express' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +107,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'created_task_id' => 'created_task_id'    ];
+        'login' => 'login',
+'balance' => 'balance',
+'is_enough_balance' => 'is_enough_balance',
+'symbols_from' => 'symbols_from',
+'symbols_to' => 'symbols_to',
+'comment' => 'comment',
+'private_comment' => 'private_comment',
+'express' => 'express'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +122,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'created_task_id' => 'setCreatedTaskId'    ];
+        'login' => 'setLogin',
+'balance' => 'setBalance',
+'is_enough_balance' => 'setIsEnoughBalance',
+'symbols_from' => 'setSymbolsFrom',
+'symbols_to' => 'setSymbolsTo',
+'comment' => 'setComment',
+'private_comment' => 'setPrivateComment',
+'express' => 'setExpress'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +137,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'created_task_id' => 'getCreatedTaskId'    ];
+        'login' => 'getLogin',
+'balance' => 'getBalance',
+'is_enough_balance' => 'getIsEnoughBalance',
+'symbols_from' => 'getSymbolsFrom',
+'symbols_to' => 'getSymbolsTo',
+'comment' => 'getComment',
+'private_comment' => 'getPrivateComment',
+'express' => 'getExpress'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +204,14 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['created_task_id'] = isset($data['created_task_id']) ? $data['created_task_id'] : null;
+        $this->container['login'] = isset($data['login']) ? $data['login'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['is_enough_balance'] = isset($data['is_enough_balance']) ? $data['is_enough_balance'] : null;
+        $this->container['symbols_from'] = isset($data['symbols_from']) ? $data['symbols_from'] : null;
+        $this->container['symbols_to'] = isset($data['symbols_to']) ? $data['symbols_to'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['private_comment'] = isset($data['private_comment']) ? $data['private_comment'] : null;
+        $this->container['express'] = isset($data['express']) ? $data['express'] : null;
     }
 
     /**
@@ -197,25 +239,193 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets created_task_id
+     * Gets login
      *
-     * @return int
+     * @return string
      */
-    public function getCreatedTaskId()
+    public function getLogin()
     {
-        return $this->container['created_task_id'];
+        return $this->container['login'];
     }
 
     /**
-     * Sets created_task_id
+     * Sets login
      *
-     * @param int $created_task_id created_task_id
+     * @param string $login login
      *
      * @return $this
      */
-    public function setCreatedTaskId($created_task_id)
+    public function setLogin($login)
     {
-        $this->container['created_task_id'] = $created_task_id;
+        $this->container['login'] = $login;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance
+     *
+     * @return float
+     */
+    public function getBalance()
+    {
+        return $this->container['balance'];
+    }
+
+    /**
+     * Sets balance
+     *
+     * @param float $balance balance
+     *
+     * @return $this
+     */
+    public function setBalance($balance)
+    {
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_enough_balance
+     *
+     * @return bool
+     */
+    public function getIsEnoughBalance()
+    {
+        return $this->container['is_enough_balance'];
+    }
+
+    /**
+     * Sets is_enough_balance
+     *
+     * @param bool $is_enough_balance Выполняются ли задания из очереди, или выполнение приостановлено из-за недостаточного баланса
+     *
+     * @return $this
+     */
+    public function setIsEnoughBalance($is_enough_balance)
+    {
+        $this->container['is_enough_balance'] = $is_enough_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets symbols_from
+     *
+     * @return int
+     */
+    public function getSymbolsFrom()
+    {
+        return $this->container['symbols_from'];
+    }
+
+    /**
+     * Sets symbols_from
+     *
+     * @param int $symbols_from symbols_from
+     *
+     * @return $this
+     */
+    public function setSymbolsFrom($symbols_from)
+    {
+        $this->container['symbols_from'] = $symbols_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets symbols_to
+     *
+     * @return int
+     */
+    public function getSymbolsTo()
+    {
+        return $this->container['symbols_to'];
+    }
+
+    /**
+     * Sets symbols_to
+     *
+     * @param int $symbols_to symbols_to
+     *
+     * @return $this
+     */
+    public function setSymbolsTo($symbols_to)
+    {
+        $this->container['symbols_to'] = $symbols_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string $comment comment
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_comment
+     *
+     * @return string
+     */
+    public function getPrivateComment()
+    {
+        return $this->container['private_comment'];
+    }
+
+    /**
+     * Sets private_comment
+     *
+     * @param string $private_comment private_comment
+     *
+     * @return $this
+     */
+    public function setPrivateComment($private_comment)
+    {
+        $this->container['private_comment'] = $private_comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets express
+     *
+     * @return bool
+     */
+    public function getExpress()
+    {
+        return $this->container['express'];
+    }
+
+    /**
+     * Sets express
+     *
+     * @param bool $express express
+     *
+     * @return $this
+     */
+    public function setExpress($express)
+    {
+        $this->container['express'] = $express;
 
         return $this;
     }

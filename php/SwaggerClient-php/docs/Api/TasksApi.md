@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPost**
-> \Swagger\Client\Model\InlineResponse2001 taskPost($kinopoisk_id)
+> object taskPost($kinopoisk_id)
 
 Добавление задания
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+**object**
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
+> object taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
 
 Редактирование задания
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+**object**
 
 ### Authorization
 

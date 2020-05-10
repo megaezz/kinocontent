@@ -79,4 +79,14 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     public function testUserGet()
     {
     }
+
+    /**
+     * Test case for userPut
+     *
+     * Редактирование пользователя.
+     *
+     */
+    public function testUserPut()
+    {
+    }
 }

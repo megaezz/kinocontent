@@ -653,7 +653,7 @@ class TasksApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2001
+     * @return object
      */
     public function taskPost($kinopoisk_id)
     {
@@ -670,11 +670,11 @@ class TasksApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function taskPostWithHttpInfo($kinopoisk_id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2001';
+        $returnType = 'object';
         $request = $this->taskPostRequest($kinopoisk_id);
 
         try {
@@ -726,7 +726,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2001',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -784,7 +784,7 @@ class TasksApi
      */
     public function taskPostAsyncWithHttpInfo($kinopoisk_id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2001';
+        $returnType = 'object';
         $request = $this->taskPostRequest($kinopoisk_id);
 
         return $this->client
@@ -942,7 +942,7 @@ class TasksApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2001
+     * @return object
      */
     public function taskPut($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
@@ -969,11 +969,11 @@ class TasksApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function taskPutWithHttpInfo($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2001';
+        $returnType = 'object';
         $request = $this->taskPutRequest($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
 
         try {
@@ -1025,7 +1025,7 @@ class TasksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2001',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1103,7 +1103,7 @@ class TasksApi
      */
     public function taskPutAsyncWithHttpInfo($id, $moderated, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2001';
+        $returnType = 'object';
         $request = $this->taskPutRequest($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
 
         return $this->client

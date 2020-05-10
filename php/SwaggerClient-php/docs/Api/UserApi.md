@@ -5,9 +5,10 @@ All URIs are relative to *https://kinocontent.club/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**userGet**](UserApi.md#userget) | **GET** /user | Получение информации о пользователе
+[**userPut**](UserApi.md#userput) | **PUT** /user | Редактирование пользователя
 
 # **userGet**
-> \Swagger\Client\Model\InlineResponse2002 userGet()
+> \Swagger\Client\Model\InlineResponse2001 userGet()
 
 Получение информации о пользователе
 
@@ -41,7 +42,67 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **userPut**
+> object userPut($symbols_from, $symbols_to, $comment, $private_comment, $express)
+
+Редактирование пользователя
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$symbols_from = 56; // int | Символов от
+$symbols_to = 56; // int | Символов до
+$comment = "comment_example"; // string | Комментарий по умолчанию
+$private_comment = "private_comment_example"; // string | Комментарий для себя по умолчанию
+$express = true; // bool | Экспресс задания по умолчанию
+
+try {
+    $result = $apiInstance->userPut($symbols_from, $symbols_to, $comment, $private_comment, $express);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->userPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbols_from** | **int**| Символов от | [optional]
+ **symbols_to** | **int**| Символов до | [optional]
+ **comment** | **string**| Комментарий по умолчанию | [optional]
+ **private_comment** | **string**| Комментарий для себя по умолчанию | [optional]
+ **express** | **bool**| Экспресс задания по умолчанию | [optional]
+
+### Return type
+
+**object**
 
 ### Authorization
 

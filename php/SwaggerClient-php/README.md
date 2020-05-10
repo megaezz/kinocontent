@@ -186,13 +186,13 @@ Class | Method | HTTP request | Description
 *TasksApi* | [**taskPut**](docs/Api/TasksApi.md#taskput) | **PUT** /task | Редактирование задания
 *TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий
 *UserApi* | [**userGet**](docs/Api/UserApi.md#userget) | **GET** /user | Получение информации о пользователе
+*UserApi* | [**userPut**](docs/Api/UserApi.md#userput) | **PUT** /user | Редактирование пользователя
 
 ## Documentation For Models
 
  - [Error](docs/Model/Error.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
- - [InlineResponse2002](docs/Model/InlineResponse2002.md)
 
 ## Documentation For Authorization
 
