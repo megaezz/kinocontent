@@ -95,4 +95,39 @@ class InlineResponse2002Test extends \PHPUnit_Framework_TestCase
     public function testPropertyIsEnoughBalance()
     {
     }
+
+    /**
+     * Test attribute "symbols_from"
+     */
+    public function testPropertySymbolsFrom()
+    {
+    }
+
+    /**
+     * Test attribute "symbols_to"
+     */
+    public function testPropertySymbolsTo()
+    {
+    }
+
+    /**
+     * Test attribute "comment"
+     */
+    public function testPropertyComment()
+    {
+    }
+
+    /**
+     * Test attribute "private_comment"
+     */
+    public function testPropertyPrivateComment()
+    {
+    }
+
+    /**
+     * Test attribute "express"
+     */
+    public function testPropertyExpress()
+    {
+    }
 }
