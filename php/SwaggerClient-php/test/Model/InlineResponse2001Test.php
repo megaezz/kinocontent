@@ -76,9 +76,58 @@ class InlineResponse2001Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "created_task_id"
+     * Test attribute "login"
      */
-    public function testPropertyCreatedTaskId()
+    public function testPropertyLogin()
+    {
+    }
+
+    /**
+     * Test attribute "balance"
+     */
+    public function testPropertyBalance()
+    {
+    }
+
+    /**
+     * Test attribute "is_enough_balance"
+     */
+    public function testPropertyIsEnoughBalance()
+    {
+    }
+
+    /**
+     * Test attribute "symbols_from"
+     */
+    public function testPropertySymbolsFrom()
+    {
+    }
+
+    /**
+     * Test attribute "symbols_to"
+     */
+    public function testPropertySymbolsTo()
+    {
+    }
+
+    /**
+     * Test attribute "comment"
+     */
+    public function testPropertyComment()
+    {
+    }
+
+    /**
+     * Test attribute "private_comment"
+     */
+    public function testPropertyPrivateComment()
+    {
+    }
+
+    /**
+     * Test attribute "express"
+     */
+    public function testPropertyExpress()
     {
     }
 }

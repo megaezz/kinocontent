@@ -1,14 +1,14 @@
-# Swagger\Client\TasksApi
+# Swagger\Client\TaskApi
 
 All URIs are relative to *https://kinocontent.club/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**taskDelete**](TasksApi.md#taskdelete) | **DELETE** /task | Удаление задания
-[**taskGet**](TasksApi.md#taskget) | **GET** /task | Получение информации о задании
-[**taskPost**](TasksApi.md#taskpost) | **POST** /task | Добавление задания
-[**taskPut**](TasksApi.md#taskput) | **PUT** /task | Редактирование задания
-[**tasksGet**](TasksApi.md#tasksget) | **GET** /tasks | Получение списка заданий
+[**taskDelete**](TaskApi.md#taskdelete) | **DELETE** /task | Удаление задания
+[**taskGet**](TaskApi.md#taskget) | **GET** /task | Получение информации о задании
+[**taskPost**](TaskApi.md#taskpost) | **POST** /task | Добавление задания
+[**taskPut**](TaskApi.md#taskput) | **PUT** /task | Редактирование задания
+[**tasksGet**](TaskApi.md#tasksget) | **GET** /tasks | Получение списка заданий
 
 # **taskDelete**
 > bool taskDelete($id)
@@ -24,7 +24,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\TasksApi(
+$apiInstance = new Swagger\Client\Api\TaskApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -36,7 +36,7 @@ try {
     $result = $apiInstance->taskDelete($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TasksApi->taskDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->taskDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -76,7 +76,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\TasksApi(
+$apiInstance = new Swagger\Client\Api\TaskApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -88,7 +88,7 @@ try {
     $result = $apiInstance->taskGet($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TasksApi->taskGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->taskGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPost**
-> \Swagger\Client\Model\InlineResponse2001 taskPost($kinopoisk_id)
+> object taskPost($kinopoisk_id)
 
 Добавление задания
 
@@ -128,7 +128,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\TasksApi(
+$apiInstance = new Swagger\Client\Api\TaskApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -140,7 +140,7 @@ try {
     $result = $apiInstance->taskPost($kinopoisk_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TasksApi->taskPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->taskPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+**object**
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> \Swagger\Client\Model\InlineResponse2001 taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express)
+> object taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
 
 Редактирование задания
 
@@ -180,25 +180,29 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\TasksApi(
+$apiInstance = new Swagger\Client\Api\TaskApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 56; // int | ID задания
+$moderated = true; // bool | Задание отмодерировано
 $symbols_from = 56; // int | Символов От
 $symbols_to = 56; // int | Символов До
 $comment = "comment_example"; // string | Комментарий к заданию
 $private_comment = "private_comment_example"; // string | Приватный комментарий (видит только сам пользователь)
 $confirmed = true; // bool | Подтвержденное задание (отправлено на выполнение)
 $express = true; // bool | Экспресс задание
+$archived = true; // bool | Задание в архиве
+$rework = true; // bool | Задание на доработке
+$rework_comment = "rework_comment_example"; // string | Комментарий доработки
 
 try {
-    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express);
+    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TasksApi->taskPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->taskPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -208,16 +212,20 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID задания |
+ **moderated** | **bool**| Задание отмодерировано |
  **symbols_from** | **int**| Символов От | [optional]
  **symbols_to** | **int**| Символов До | [optional]
  **comment** | **string**| Комментарий к заданию | [optional]
  **private_comment** | **string**| Приватный комментарий (видит только сам пользователь) | [optional]
  **confirmed** | **bool**| Подтвержденное задание (отправлено на выполнение) | [optional]
  **express** | **bool**| Экспресс задание | [optional]
+ **archived** | **bool**| Задание в архиве | [optional]
+ **rework** | **bool**| Задание на доработке | [optional]
+ **rework_comment** | **string**| Комментарий доработки | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+**object**
 
 ### Authorization
 
@@ -244,7 +252,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\TasksApi(
+$apiInstance = new Swagger\Client\Api\TaskApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -261,7 +269,7 @@ try {
     $result = $apiInstance->tasksGet($include_data, $done, $confirmed, $archived, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TasksApi->tasksGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->tasksGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
