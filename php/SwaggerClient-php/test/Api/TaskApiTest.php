@@ -12,7 +12,7 @@
 /**
  * Киноконтент API
  *
- * API биржи описаний к фильмам и сериалам https://kinocontent.club
+ * REST API биржи описаний к фильмам и сериалам https://kinocontent.club
  *
  * OpenAPI spec version: 1.0.0
  * 
