@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **taskPut**
-> object taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated)
+> object taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
 
 Редактирование задания
 
@@ -196,10 +196,9 @@ $express = true; // bool | Экспресс задание
 $archived = true; // bool | Задание в архиве
 $rework = true; // bool | Задание на доработке
 $rework_comment = "rework_comment_example"; // string | Комментарий доработки
-$moderated = true; // bool | Задание отмодерировано
 
 try {
-    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated);
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskApi->taskPut: ', $e->getMessage(), PHP_EOL;
@@ -221,7 +220,6 @@ Name | Type | Description  | Notes
  **archived** | **bool**| Задание в архиве | [optional]
  **rework** | **bool**| Задание на доработке | [optional]
  **rework_comment** | **string**| Комментарий доработки | [optional]
- **moderated** | **bool**| Задание отмодерировано | [optional]
 
 ### Return type
 

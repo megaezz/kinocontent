@@ -938,15 +938,14 @@ class TaskApi
      * @param  bool $archived Задание в архиве (optional)
      * @param  bool $rework Задание на доработке (optional)
      * @param  string $rework_comment Комментарий доработки (optional)
-     * @param  bool $moderated Задание отмодерировано (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null, $moderated = null)
+    public function taskPut($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
-        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated);
+        list($response) = $this->taskPutWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
         return $response;
     }
 
@@ -965,16 +964,15 @@ class TaskApi
      * @param  bool $archived Задание в архиве (optional)
      * @param  bool $rework Задание на доработке (optional)
      * @param  string $rework_comment Комментарий доработки (optional)
-     * @param  bool $moderated Задание отмодерировано (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null, $moderated = null)
+    public function taskPutWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
         $returnType = 'object';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1066,14 +1064,13 @@ class TaskApi
      * @param  bool $archived Задание в архиве (optional)
      * @param  bool $rework Задание на доработке (optional)
      * @param  string $rework_comment Комментарий доработки (optional)
-     * @param  bool $moderated Задание отмодерировано (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null, $moderated = null)
+    public function taskPutAsync($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
-        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated)
+        return $this->taskPutAsyncWithHttpInfo($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1096,15 +1093,14 @@ class TaskApi
      * @param  bool $archived Задание в архиве (optional)
      * @param  bool $rework Задание на доработке (optional)
      * @param  string $rework_comment Комментарий доработки (optional)
-     * @param  bool $moderated Задание отмодерировано (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null, $moderated = null)
+    public function taskPutAsyncWithHttpInfo($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
         $returnType = 'object';
-        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated);
+        $request = $this->taskPutRequest($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1156,12 +1152,11 @@ class TaskApi
      * @param  bool $archived Задание в архиве (optional)
      * @param  bool $rework Задание на доработке (optional)
      * @param  string $rework_comment Комментарий доработки (optional)
-     * @param  bool $moderated Задание отмодерировано (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null, $moderated = null)
+    protected function taskPutRequest($id, $symbols_from = null, $symbols_to = null, $comment = null, $private_comment = null, $confirmed = null, $express = null, $archived = null, $rework = null, $rework_comment = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1216,10 +1211,6 @@ class TaskApi
         // query params
         if ($rework_comment !== null) {
             $queryParams['rework_comment'] = ObjectSerializer::toQueryValue($rework_comment);
-        }
-        // query params
-        if ($moderated !== null) {
-            $queryParams['moderated'] = ObjectSerializer::toQueryValue($moderated);
         }
 
 
