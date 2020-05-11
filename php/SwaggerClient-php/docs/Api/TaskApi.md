@@ -149,7 +149,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **kinopoisk_id** | **int**| ID фильма или сериала с Кинопоиска |
+ **kinopoisk_id** | **int**| ID фильма или сериала с Кинопоиска | [optional]
 
 ### Return type
 

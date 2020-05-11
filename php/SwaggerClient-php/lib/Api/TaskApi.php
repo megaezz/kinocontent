@@ -649,13 +649,13 @@ class TaskApi
      *
      * Добавление задания
      *
-     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (required)
+     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function taskPost($kinopoisk_id)
+    public function taskPost($kinopoisk_id = null)
     {
         list($response) = $this->taskPostWithHttpInfo($kinopoisk_id);
         return $response;
@@ -666,13 +666,13 @@ class TaskApi
      *
      * Добавление задания
      *
-     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (required)
+     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taskPostWithHttpInfo($kinopoisk_id)
+    public function taskPostWithHttpInfo($kinopoisk_id = null)
     {
         $returnType = 'object';
         $request = $this->taskPostRequest($kinopoisk_id);
@@ -757,12 +757,12 @@ class TaskApi
      *
      * Добавление задания
      *
-     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (required)
+     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPostAsync($kinopoisk_id)
+    public function taskPostAsync($kinopoisk_id = null)
     {
         return $this->taskPostAsyncWithHttpInfo($kinopoisk_id)
             ->then(
@@ -777,12 +777,12 @@ class TaskApi
      *
      * Добавление задания
      *
-     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (required)
+     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taskPostAsyncWithHttpInfo($kinopoisk_id)
+    public function taskPostAsyncWithHttpInfo($kinopoisk_id = null)
     {
         $returnType = 'object';
         $request = $this->taskPostRequest($kinopoisk_id);
@@ -827,19 +827,13 @@ class TaskApi
     /**
      * Create request for operation 'taskPost'
      *
-     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (required)
+     * @param  int $kinopoisk_id ID фильма или сериала с Кинопоиска (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taskPostRequest($kinopoisk_id)
+    protected function taskPostRequest($kinopoisk_id = null)
     {
-        // verify the required parameter 'kinopoisk_id' is set
-        if ($kinopoisk_id === null || (is_array($kinopoisk_id) && count($kinopoisk_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $kinopoisk_id when calling taskPost'
-            );
-        }
 
         $resourcePath = '/task';
         $formParams = [];
