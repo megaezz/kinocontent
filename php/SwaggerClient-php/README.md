@@ -129,7 +129,6 @@ $apiInstance = new Swagger\Client\Api\TaskApi(
     $config
 );
 $id = 56; // int | ID задания
-$moderated = true; // bool | Задание отмодерировано
 $symbols_from = 56; // int | Символов От
 $symbols_to = 56; // int | Символов До
 $comment = "comment_example"; // string | Комментарий к заданию
@@ -139,9 +138,10 @@ $express = true; // bool | Экспресс задание
 $archived = true; // bool | Задание в архиве
 $rework = true; // bool | Задание на доработке
 $rework_comment = "rework_comment_example"; // string | Комментарий доработки
+$moderated = true; // bool | Задание отмодерировано
 
 try {
-    $result = $apiInstance->taskPut($id, $moderated, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
+    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment, $moderated);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskApi->taskPut: ', $e->getMessage(), PHP_EOL;
