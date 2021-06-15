@@ -22,6 +22,7 @@
   "paths" : {
     "/tasks" : {
       "get" : {
+        "operationId" : "getTasks",
         "parameters" : [ {
           "in" : "query",
           "name" : "include_data",
@@ -109,6 +110,7 @@
     },
     "/task" : {
       "get" : {
+        "operationId" : "getTask",
         "summary" : "Получение информации о задании",
         "parameters" : [ {
           "in" : "query",
@@ -216,6 +218,7 @@
         "tags" : [ "task" ]
       },
       "post" : {
+        "operationId" : "addTask",
         "summary" : "Добавление задания",
         "parameters" : [ {
           "in" : "query",
@@ -261,6 +264,7 @@
         "tags" : [ "task" ]
       },
       "delete" : {
+        "operationId" : "deleteTask",
         "summary" : "Удаление задания",
         "parameters" : [ {
           "in" : "query",
@@ -307,6 +311,7 @@
         "tags" : [ "task" ]
       },
       "put" : {
+        "operationId" : "editTask",
         "summary" : "Редактирование задания",
         "parameters" : [ {
           "in" : "query",
@@ -426,6 +431,7 @@
     },
     "/user" : {
       "get" : {
+        "operationId" : "getUser",
         "summary" : "Получение информации о пользователе",
         "responses" : {
           "200" : {
@@ -497,6 +503,7 @@
         "tags" : [ "user" ]
       },
       "put" : {
+        "operationId" : "editUser",
         "summary" : "Редактирование пользователя",
         "parameters" : [ {
           "in" : "query",
