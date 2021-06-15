@@ -1,0 +1,606 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "url" : "https://kinocontent.club/api/v1",
+    "description" : "Основной сервер"
+  }, {
+    "url" : "https://local.kinocontent.club/api/v1",
+    "description" : "Тестовый локальный сервер (не выбирать)"
+  } ],
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Киноконтент API",
+    "description" : "REST API биржи описаний к фильмам и сериалам https://kinocontent.club",
+    "contact" : {
+      "url" : "https://t.me/megaezz",
+      "name" : "Кирилл"
+    }
+  },
+  "security" : [ {
+    "ApiKeyAuth" : [ ]
+  } ],
+  "paths" : {
+    "/tasks" : {
+      "get" : {
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "include_data",
+          "description" : "С расширенными данными (по умолчанию) / Только ID",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "done",
+          "description" : "Выполненные / не выполненные",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "confirmed",
+          "description" : "Отправленные в работу / не отправленные",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "archived",
+          "description" : "В архиве / не в архиве",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "Лимит (от 1 до 100 элементов)",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "Номер страницы",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "summary" : "Получение списка заданий",
+        "responses" : {
+          "200" : {
+            "description" : "Список заданий",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "task" ]
+      }
+    },
+    "/task" : {
+      "get" : {
+        "summary" : "Получение информации о задании",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "ID задания",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Информация о задании",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "id" : {
+                      "type" : "integer",
+                      "example" : 2589887
+                    },
+                    "kinopoisk_id" : {
+                      "type" : "integer",
+                      "example" : 404900
+                    },
+                    "text" : {
+                      "type" : "string",
+                      "example" : "Написанный текст"
+                    },
+                    "text_length" : {
+                      "type" : "integer",
+                      "example" : 1050
+                    },
+                    "symbols_from" : {
+                      "type" : "integer",
+                      "example" : 1000
+                    },
+                    "symbols_to" : {
+                      "type" : "integer",
+                      "example" : 1100
+                    },
+                    "unique" : {
+                      "type" : "integer",
+                      "example" : 100
+                    },
+                    "comment" : {
+                      "type" : "string",
+                      "example" : "Комментарий к заданию"
+                    },
+                    "private_comment" : {
+                      "type" : "string",
+                      "example" : "Приватный комментарий (видит только сам пользователь)"
+                    },
+                    "confirmed" : {
+                      "type" : "boolean",
+                      "example" : true
+                    },
+                    "express" : {
+                      "type" : "boolean",
+                      "example" : true
+                    },
+                    "archived" : {
+                      "type" : "boolean",
+                      "example" : false
+                    },
+                    "moderated" : {
+                      "type" : "boolean",
+                      "example" : true
+                    },
+                    "rework" : {
+                      "type" : "boolean",
+                      "example" : false
+                    },
+                    "rework_comment" : {
+                      "type" : "string",
+                      "example" : "Комментарий доработки"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "task" ]
+      },
+      "post" : {
+        "summary" : "Добавление задания",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "kinopoisk_id",
+          "description" : "ID фильма или сериала с Кинопоиска",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Информация о созданном задании",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "task" ]
+      },
+      "delete" : {
+        "summary" : "Удаление задания",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "ID задания",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Удаление прошло успешно",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "boolean",
+                  "example" : true
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "task" ]
+      },
+      "put" : {
+        "summary" : "Редактирование задания",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "id",
+          "description" : "ID задания",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "symbols_from",
+          "description" : "Символов От",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "symbols_to",
+          "description" : "Символов До",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comment",
+          "description" : "Комментарий к заданию",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "private_comment",
+          "description" : "Приватный комментарий (видит только сам пользователь)",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "confirmed",
+          "description" : "Подтвержденное задание (отправлено на выполнение)",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "express",
+          "description" : "Экспресс задание",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "archived",
+          "description" : "Задание в архиве",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "rework",
+          "description" : "Задание на доработке",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "in" : "query",
+          "name" : "rework_comment",
+          "description" : "Комментарий доработки",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Информация о задании после редактирования",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "task" ]
+      }
+    },
+    "/user" : {
+      "get" : {
+        "summary" : "Получение информации о пользователе",
+        "responses" : {
+          "200" : {
+            "description" : "Информация о пользователе",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "login" : {
+                      "type" : "string",
+                      "example" : "customer"
+                    },
+                    "balance" : {
+                      "type" : "number",
+                      "example" : 780.8
+                    },
+                    "is_enough_balance" : {
+                      "type" : "boolean",
+                      "description" : "Выполняются ли задания из очереди, или выполнение приостановлено из-за недостаточного баланса",
+                      "example" : true
+                    },
+                    "symbols_from" : {
+                      "type" : "integer",
+                      "example" : 1000
+                    },
+                    "symbols_to" : {
+                      "type" : "integer",
+                      "example" : 1100
+                    },
+                    "comment" : {
+                      "type" : "string",
+                      "example" : "Комментарий к заданиям по умолчанию"
+                    },
+                    "private_comment" : {
+                      "type" : "string",
+                      "example" : "Комментарий для себя по умолчанию"
+                    },
+                    "express" : {
+                      "type" : "boolean",
+                      "example" : true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "user" ]
+      },
+      "put" : {
+        "summary" : "Редактирование пользователя",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "symbols_from",
+          "description" : "Символов от",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "symbols_to",
+          "description" : "Символов до",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comment",
+          "description" : "Комментарий по умолчанию",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "private_comment",
+          "description" : "Комментарий для себя по умолчанию",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "express",
+          "description" : "Экспресс задания по умолчанию",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Информация о пользователе после редактирования",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Ошибка авторизации",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags" : [ "user" ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Error" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "example" : "Сообщение об ошибке"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "ApiKeyAuth" : {
+        "type" : "apiKey",
+        "description" : "API ключ для авторизации запросов",
+        "name" : "X-API-KEY",
+        "in" : "header"
+      }
+    }
+  },
+  "tags" : [ {
+    "name" : "task",
+    "description" : "Методы для работы с заданиями"
+  }, {
+    "name" : "user",
+    "description" : "Методы для работы с пользователем"
+  } ]
+}
