@@ -60,48 +60,31 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.TaskApi(swagger_client.ApiClient(configuration))
-id = 56 # int | ID задания
-
-try:
-    # Удаление задания
-    api_response = api_instance.task_delete(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TaskApi->task_delete: %s\n" % e)
-
-# Configure API key authorization: ApiKeyAuth
-configuration = swagger_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.TaskApi(swagger_client.ApiClient(configuration))
-id = 56 # int | ID задания
-
-try:
-    # Получение информации о задании
-    api_response = api_instance.task_get(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TaskApi->task_get: %s\n" % e)
-
-# Configure API key authorization: ApiKeyAuth
-configuration = swagger_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.TaskApi(swagger_client.ApiClient(configuration))
 kinopoisk_id = 56 # int | ID фильма или сериала с Кинопоиска (optional)
 
 try:
     # Добавление задания
-    api_response = api_instance.task_post(kinopoisk_id=kinopoisk_id)
+    api_response = api_instance.add_task(kinopoisk_id=kinopoisk_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TaskApi->task_post: %s\n" % e)
+    print("Exception when calling TaskApi->add_task: %s\n" % e)
+
+# Configure API key authorization: ApiKeyAuth
+configuration = swagger_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.TaskApi(swagger_client.ApiClient(configuration))
+id = 56 # int | ID задания
+
+try:
+    # Удаление задания
+    api_response = api_instance.delete_task(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaskApi->delete_task: %s\n" % e)
 
 # Configure API key authorization: ApiKeyAuth
 configuration = swagger_client.Configuration()
@@ -124,10 +107,27 @@ rework_comment = 'rework_comment_example' # str | Комментарий дор�
 
 try:
     # Редактирование задания
-    api_response = api_instance.task_put(id, symbols_from=symbols_from, symbols_to=symbols_to, comment=comment, private_comment=private_comment, confirmed=confirmed, express=express, archived=archived, rework=rework, rework_comment=rework_comment)
+    api_response = api_instance.edit_task(id, symbols_from=symbols_from, symbols_to=symbols_to, comment=comment, private_comment=private_comment, confirmed=confirmed, express=express, archived=archived, rework=rework, rework_comment=rework_comment)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TaskApi->task_put: %s\n" % e)
+    print("Exception when calling TaskApi->edit_task: %s\n" % e)
+
+# Configure API key authorization: ApiKeyAuth
+configuration = swagger_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.TaskApi(swagger_client.ApiClient(configuration))
+id = 56 # int | ID задания
+
+try:
+    # Получение информации о задании
+    api_response = api_instance.get_task(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaskApi->get_task: %s\n" % e)
 
 # Configure API key authorization: ApiKeyAuth
 configuration = swagger_client.Configuration()
@@ -146,10 +146,10 @@ page = 56 # int | Номер страницы (optional)
 
 try:
     # Получение списка заданий
-    api_response = api_instance.tasks_get(include_data=include_data, done=done, confirmed=confirmed, archived=archived, limit=limit, page=page)
+    api_response = api_instance.get_tasks(include_data=include_data, done=done, confirmed=confirmed, archived=archived, limit=limit, page=page)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TaskApi->tasks_get: %s\n" % e)
+    print("Exception when calling TaskApi->get_tasks: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -158,13 +158,13 @@ All URIs are relative to *https://kinocontent.club/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*TaskApi* | [**task_delete**](docs/TaskApi.md#task_delete) | **DELETE** /task | Удаление задания
-*TaskApi* | [**task_get**](docs/TaskApi.md#task_get) | **GET** /task | Получение информации о задании
-*TaskApi* | [**task_post**](docs/TaskApi.md#task_post) | **POST** /task | Добавление задания
-*TaskApi* | [**task_put**](docs/TaskApi.md#task_put) | **PUT** /task | Редактирование задания
-*TaskApi* | [**tasks_get**](docs/TaskApi.md#tasks_get) | **GET** /tasks | Получение списка заданий
-*UserApi* | [**user_get**](docs/UserApi.md#user_get) | **GET** /user | Получение информации о пользователе
-*UserApi* | [**user_put**](docs/UserApi.md#user_put) | **PUT** /user | Редактирование пользователя
+*TaskApi* | [**add_task**](docs/TaskApi.md#add_task) | **POST** /task | Добавление задания
+*TaskApi* | [**delete_task**](docs/TaskApi.md#delete_task) | **DELETE** /task | Удаление задания
+*TaskApi* | [**edit_task**](docs/TaskApi.md#edit_task) | **PUT** /task | Редактирование задания
+*TaskApi* | [**get_task**](docs/TaskApi.md#get_task) | **GET** /task | Получение информации о задании
+*TaskApi* | [**get_tasks**](docs/TaskApi.md#get_tasks) | **GET** /tasks | Получение списка заданий
+*UserApi* | [**edit_user**](docs/UserApi.md#edit_user) | **PUT** /user | Редактирование пользователя
+*UserApi* | [**get_user**](docs/UserApi.md#get_user) | **GET** /user | Получение информации о пользователе
 
 ## Documentation For Models
 

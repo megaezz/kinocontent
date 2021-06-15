@@ -32,198 +32,12 @@ class TaskApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def task_delete(self, id, **kwargs):  # noqa: E501
-        """Удаление задания  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_delete(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: ID задания (required)
-        :return: bool
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.task_delete_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.task_delete_with_http_info(id, **kwargs)  # noqa: E501
-            return data
-
-    def task_delete_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Удаление задания  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_delete_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: ID задания (required)
-        :return: bool
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method task_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `task_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'id' in params:
-            query_params.append(('id', params['id']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/task', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='bool',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def task_get(self, id, **kwargs):  # noqa: E501
-        """Получение информации о задании  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_get(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: ID задания (required)
-        :return: InlineResponse200
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.task_get_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.task_get_with_http_info(id, **kwargs)  # noqa: E501
-            return data
-
-    def task_get_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Получение информации о задании  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_get_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: ID задания (required)
-        :return: InlineResponse200
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method task_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `task_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'id' in params:
-            query_params.append(('id', params['id']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/task', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def task_post(self, **kwargs):  # noqa: E501
+    def add_task(self, **kwargs):  # noqa: E501
         """Добавление задания  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_post(async_req=True)
+        >>> thread = api.add_task(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -234,17 +48,17 @@ class TaskApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.task_post_with_http_info(**kwargs)  # noqa: E501
+            return self.add_task_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.task_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.add_task_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def task_post_with_http_info(self, **kwargs):  # noqa: E501
+    def add_task_with_http_info(self, **kwargs):  # noqa: E501
         """Добавление задания  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_post_with_http_info(async_req=True)
+        >>> thread = api.add_task_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -265,7 +79,7 @@ class TaskApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method task_post" % key
+                    " to method add_task" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -307,12 +121,105 @@ class TaskApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def task_put(self, id, **kwargs):  # noqa: E501
+    def delete_task(self, id, **kwargs):  # noqa: E501
+        """Удаление задания  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_task(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: ID задания (required)
+        :return: bool
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_task_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_task_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def delete_task_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Удаление задания  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_task_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: ID задания (required)
+        :return: bool
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_task" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `delete_task`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/task', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='bool',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def edit_task(self, id, **kwargs):  # noqa: E501
         """Редактирование задания  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_put(id, async_req=True)
+        >>> thread = api.edit_task(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -332,17 +239,17 @@ class TaskApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.task_put_with_http_info(id, **kwargs)  # noqa: E501
+            return self.edit_task_with_http_info(id, **kwargs)  # noqa: E501
         else:
-            (data) = self.task_put_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.edit_task_with_http_info(id, **kwargs)  # noqa: E501
             return data
 
-    def task_put_with_http_info(self, id, **kwargs):  # noqa: E501
+    def edit_task_with_http_info(self, id, **kwargs):  # noqa: E501
         """Редактирование задания  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.task_put_with_http_info(id, async_req=True)
+        >>> thread = api.edit_task_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -372,14 +279,14 @@ class TaskApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method task_put" % key
+                    " to method edit_task" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in params or
                 params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `task_put`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `edit_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -436,12 +343,105 @@ class TaskApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def tasks_get(self, **kwargs):  # noqa: E501
+    def get_task(self, id, **kwargs):  # noqa: E501
+        """Получение информации о задании  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_task(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: ID задания (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_task_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_task_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def get_task_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Получение информации о задании  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_task_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: ID задания (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_task" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_task`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/task', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_tasks(self, **kwargs):  # noqa: E501
         """Получение списка заданий  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tasks_get(async_req=True)
+        >>> thread = api.get_tasks(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -457,17 +457,17 @@ class TaskApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.tasks_get_with_http_info(**kwargs)  # noqa: E501
+            return self.get_tasks_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.tasks_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.get_tasks_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def tasks_get_with_http_info(self, **kwargs):  # noqa: E501
+    def get_tasks_with_http_info(self, **kwargs):  # noqa: E501
         """Получение списка заданий  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tasks_get_with_http_info(async_req=True)
+        >>> thread = api.get_tasks_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -493,7 +493,7 @@ class TaskApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method tasks_get" % key
+                    " to method get_tasks" % key
                 )
             params[key] = val
         del params['kwargs']

@@ -28,36 +28,36 @@ class TestTaskApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_task_delete(self):
-        """Test case for task_delete
-
-        Удаление задания  # noqa: E501
-        """
-        pass
-
-    def test_task_get(self):
-        """Test case for task_get
-
-        Получение информации о задании  # noqa: E501
-        """
-        pass
-
-    def test_task_post(self):
-        """Test case for task_post
+    def test_add_task(self):
+        """Test case for add_task
 
         Добавление задания  # noqa: E501
         """
         pass
 
-    def test_task_put(self):
-        """Test case for task_put
+    def test_delete_task(self):
+        """Test case for delete_task
+
+        Удаление задания  # noqa: E501
+        """
+        pass
+
+    def test_edit_task(self):
+        """Test case for edit_task
 
         Редактирование задания  # noqa: E501
         """
         pass
 
-    def test_tasks_get(self):
-        """Test case for tasks_get
+    def test_get_task(self):
+        """Test case for get_task
+
+        Получение информации о задании  # noqa: E501
+        """
+        pass
+
+    def test_get_tasks(self):
+        """Test case for get_tasks
 
         Получение списка заданий  # noqa: E501
         """

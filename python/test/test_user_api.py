@@ -28,17 +28,17 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_user_get(self):
-        """Test case for user_get
+    def test_edit_user(self):
+        """Test case for edit_user
 
-        Получение информации о пользователе  # noqa: E501
+        Редактирование пользователя  # noqa: E501
         """
         pass
 
-    def test_user_put(self):
-        """Test case for user_put
+    def test_get_user(self):
+        """Test case for get_user
 
-        Редактирование пользователя  # noqa: E501
+        Получение информации о пользователе  # noqa: E501
         """
         pass
 
