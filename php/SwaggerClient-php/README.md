@@ -68,53 +68,33 @@ $apiInstance = new Swagger\Client\Api\TaskApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | ID задания
-
-try {
-    $result = $apiInstance->taskDelete($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaskApi->taskDelete: ', $e->getMessage(), PHP_EOL;
-}
-
-// Configure API key authorization: ApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\TaskApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 56; // int | ID задания
-
-try {
-    $result = $apiInstance->taskGet($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaskApi->taskGet: ', $e->getMessage(), PHP_EOL;
-}
-
-// Configure API key authorization: ApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\TaskApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $kinopoisk_id = 56; // int | ID фильма или сериала с Кинопоиска
 
 try {
-    $result = $apiInstance->taskPost($kinopoisk_id);
+    $result = $apiInstance->addTask($kinopoisk_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskApi->taskPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->addTask: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\TaskApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | ID задания
+
+try {
+    $result = $apiInstance->deleteTask($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TaskApi->deleteTask: ', $e->getMessage(), PHP_EOL;
 }
 
 // Configure API key authorization: ApiKeyAuth
@@ -140,10 +120,30 @@ $rework = true; // bool | Задание на доработке
 $rework_comment = "rework_comment_example"; // string | Комментарий доработки
 
 try {
-    $result = $apiInstance->taskPut($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
+    $result = $apiInstance->editTask($id, $symbols_from, $symbols_to, $comment, $private_comment, $confirmed, $express, $archived, $rework, $rework_comment);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskApi->taskPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->editTask: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: ApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\TaskApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | ID задания
+
+try {
+    $result = $apiInstance->getTask($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TaskApi->getTask: ', $e->getMessage(), PHP_EOL;
 }
 
 // Configure API key authorization: ApiKeyAuth
@@ -165,10 +165,10 @@ $limit = 56; // int | Лимит (от 1 до 100 элементов)
 $page = 56; // int | Номер страницы
 
 try {
-    $result = $apiInstance->tasksGet($include_data, $done, $confirmed, $archived, $limit, $page);
+    $result = $apiInstance->getTasks($include_data, $done, $confirmed, $archived, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskApi->tasksGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskApi->getTasks: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -179,13 +179,13 @@ All URIs are relative to *https://kinocontent.club/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*TaskApi* | [**taskDelete**](docs/Api/TaskApi.md#taskdelete) | **DELETE** /task | Удаление задания
-*TaskApi* | [**taskGet**](docs/Api/TaskApi.md#taskget) | **GET** /task | Получение информации о задании
-*TaskApi* | [**taskPost**](docs/Api/TaskApi.md#taskpost) | **POST** /task | Добавление задания
-*TaskApi* | [**taskPut**](docs/Api/TaskApi.md#taskput) | **PUT** /task | Редактирование задания
-*TaskApi* | [**tasksGet**](docs/Api/TaskApi.md#tasksget) | **GET** /tasks | Получение списка заданий
-*UserApi* | [**userGet**](docs/Api/UserApi.md#userget) | **GET** /user | Получение информации о пользователе
-*UserApi* | [**userPut**](docs/Api/UserApi.md#userput) | **PUT** /user | Редактирование пользователя
+*TaskApi* | [**addTask**](docs/Api/TaskApi.md#addtask) | **POST** /task | Добавление задания
+*TaskApi* | [**deleteTask**](docs/Api/TaskApi.md#deletetask) | **DELETE** /task | Удаление задания
+*TaskApi* | [**editTask**](docs/Api/TaskApi.md#edittask) | **PUT** /task | Редактирование задания
+*TaskApi* | [**getTask**](docs/Api/TaskApi.md#gettask) | **GET** /task | Получение информации о задании
+*TaskApi* | [**getTasks**](docs/Api/TaskApi.md#gettasks) | **GET** /tasks | Получение списка заданий
+*UserApi* | [**editUser**](docs/Api/UserApi.md#edituser) | **PUT** /user | Редактирование пользователя
+*UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /user | Получение информации о пользователе
 
 ## Documentation For Models
 
